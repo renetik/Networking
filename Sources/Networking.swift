@@ -1,7 +1,6 @@
 import Foundation
 
 public extension Int {
-
     /// Categorizes a status code.
     ///
     /// - Returns: The NetworkingStatusCodeType of the status code.
@@ -90,12 +89,12 @@ open class Networking {
         case informational, successful, redirection, clientError, serverError, cancelled, unknown
     }
 
-    fileprivate let baseURL: String
+    private let baseURL: String
     var fakeRequests = [RequestType: [String: FakeRequest]]()
     var token: String?
     var authorizationHeaderValue: String?
     var authorizationHeaderKey = "Authorization"
-    fileprivate var configuration: URLSessionConfiguration
+    private var configuration: URLSessionConfiguration
     var cache: NSCache<AnyObject, AnyObject>
 
     /// Flag used to indicate synchronous request.
@@ -107,9 +106,7 @@ open class Networking {
     /// The boundary used for multipart requests.
     let boundary = String(format: "net.3lvis.networking.%08x%08x", arc4random(), arc4random())
 
-    lazy var session: URLSession = {
-        URLSession(configuration: self.configuration)
-    }()
+    lazy var session: URLSession = .init(configuration: self.configuration)
 
     /// Caching options
     public enum CachingLevel {
@@ -290,7 +287,7 @@ open class Networking {
         headerFields = nil
         authorizationHeaderKey = "Authorization"
         authorizationHeaderValue = nil
-        
+
         Networking.deleteCachedFiles()
     }
 

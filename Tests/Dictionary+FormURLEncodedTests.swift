@@ -2,7 +2,6 @@ import Foundation
 import XCTest
 
 class Dictionary_FormURLEncodedTests: XCTestCase {
-
     func testFormatting() {
         let parameters = ["username": "elvis", "password": "secret"]
         let formatted = try! parameters.urlEncodedString()

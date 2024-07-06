@@ -42,14 +42,14 @@ class FakeRequestTests: XCTestCase {
 
     func testOneLevelFind() {
         let json = [
-            "name": "Name {userID}"
+            "name": "Name {userID}",
         ]
         let request = FakeRequest(response: json, responseType: .json, statusCode: 200)
         let existingRequests = [Networking.RequestType.get: ["/users/{userID}": request]]
         let result = FakeRequest.find(ofType: .get, forPath: "/users/10", in: existingRequests)
 
         let expected = [
-            "name": "Name 10"
+            "name": "Name 10",
         ]
 
         XCTAssertEqual(result?.response as? NSDictionary, expected as NSDictionary)
@@ -58,7 +58,7 @@ class FakeRequestTests: XCTestCase {
     func testTwoLevelFind() {
         let json = [
             "user": "User {userID}",
-            "company": "Company {companyID}"
+            "company": "Company {companyID}",
         ]
         let request = FakeRequest(response: json, responseType: .json, statusCode: 200)
         let existingRequests = [Networking.RequestType.get: ["/users/{userID}/companies/{companyID}": request]]
@@ -66,7 +66,7 @@ class FakeRequestTests: XCTestCase {
 
         let expected = [
             "user": "User 10",
-            "company": "Company 20"
+            "company": "Company 20",
         ]
 
         XCTAssertEqual(result?.response as? NSDictionary, expected as NSDictionary)
@@ -76,7 +76,7 @@ class FakeRequestTests: XCTestCase {
         let json = [
             "user": "User {userID}",
             "company": "Company {companyID}",
-            "product": "Product {productID}"
+            "product": "Product {productID}",
         ]
         let request = FakeRequest(response: json, responseType: .json, statusCode: 200)
         let existingRequests = [Networking.RequestType.get: ["/users/{userID}/companies/{companyID}/products/{productID}": request]]
@@ -85,7 +85,7 @@ class FakeRequestTests: XCTestCase {
         let expected = [
             "user": "User 10",
             "company": "Company 20",
-            "product": "Product 30"
+            "product": "Product 30",
         ]
 
         XCTAssertEqual(result?.response as? NSDictionary, expected as NSDictionary)
@@ -119,7 +119,7 @@ class FakeRequestTests: XCTestCase {
             "resource8": "Resource 8",
             "resource9": "Resource 9",
             "resource10": "Resource 10",
-            ]
+        ]
         XCTAssertEqual(result?.response as? NSDictionary, expected as NSDictionary)
     }
 }
@@ -198,13 +198,13 @@ extension FakeRequestTests {
         let networking = Networking(baseURL: baseURL)
 
         let json = [
-            "name": "Name {userID}"
+            "name": "Name {userID}",
         ]
         networking.fakeGET("/users/{userID}", response: json, statusCode: 200)
 
         networking.get("/users/10") { result in
             switch result {
-            case .success(let response):
+            case let .success(response):
                 let json = response.dictionaryBody
                 let name = json["name"] as? String
                 XCTAssertEqual(name, "Name 10")
@@ -215,7 +215,7 @@ extension FakeRequestTests {
 
         networking.get("/users/20") { result in
             switch result {
-            case .success(let response):
+            case let .success(response):
                 let json = response.dictionaryBody
                 let name = json["name"] as? String
                 XCTAssertEqual(name, "Name 20")

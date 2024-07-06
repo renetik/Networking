@@ -51,25 +51,25 @@ class DownloadTests: XCTestCase {
 
     // Find a new source for this test
     /*
-    func testImageDownloadWithWeirdCharacters() {
-        let networking = Networking(baseURL: "https://rescuejuice.com")
-        let path = "/wp-content/uploads/2015/11/døgnvillburgere.jpg"
+     func testImageDownloadWithWeirdCharacters() {
+         let networking = Networking(baseURL: "https://rescuejuice.com")
+         let path = "/wp-content/uploads/2015/11/døgnvillburgere.jpg"
 
-        try! Helper.removeFileIfNeeded(networking, path: path)
+         try! Helper.removeFileIfNeeded(networking, path: path)
 
-        networking.downloadImage(path) { result in
-            switch result {
-            case let .success(response):
-                let pigImage = Image.find(named: "døgnvillburgere.jpg", inBundle: Bundle(for: DownloadTests.self))
-                let pigImageData = pigImage.pngData()
-                let imageData = response.image.pngData()
-                XCTAssertEqual(pigImageData, imageData)
-            case .failure:
-                XCTFail()
-            }
-        }
-    }
-    */
+         networking.downloadImage(path) { result in
+             switch result {
+             case let .success(response):
+                 let pigImage = Image.find(named: "døgnvillburgere.jpg", inBundle: Bundle(for: DownloadTests.self))
+                 let pigImageData = pigImage.pngData()
+                 let imageData = response.image.pngData()
+                 XCTAssertEqual(pigImageData, imageData)
+             case .failure:
+                 XCTFail()
+             }
+         }
+     }
+     */
 
     func testDownloadedImageInFile() {
         let networking = Networking(baseURL: baseURL)
@@ -303,7 +303,7 @@ class DownloadTests: XCTestCase {
                     XCTAssert(response.data == cacheData)
                 } else {
                     XCTFail()
-                }                
+                }
             case .failure:
                 XCTFail()
             }

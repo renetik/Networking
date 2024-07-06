@@ -41,7 +41,7 @@ class ResultTests: XCTestCase {
             switch value.json {
             case let .array(_, valueBody):
                 XCTAssertEqual(expectedBody.debugDescription, valueBody.debugDescription)
-                // XCTAssertEqual(dataBody.hashValue, expectedBody.hashValue)
+            // XCTAssertEqual(dataBody.hashValue, expectedBody.hashValue)
             case .dictionary(_, _), .none:
                 XCTFail()
             }

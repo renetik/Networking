@@ -6,7 +6,6 @@ class AppDelegate: UIResponder {
 }
 
 extension AppDelegate: UIApplicationDelegate {
-
     func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
 

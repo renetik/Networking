@@ -95,8 +95,7 @@ class GETTests: XCTestCase {
     }
 
     // I'm not sure how it implement this, since I need a service that returns a faulty status code, meaning not 2XX, and at the same time it returns a JSON response.
-    func testGETWithInvalidPathAndJSONError() {
-    }
+    func testGETWithInvalidPathAndJSONError() {}
 
     func testCancelGETWithPath() {
         let expectation = self.expectation(description: "testCancelGET")
@@ -257,7 +256,7 @@ class GETTests: XCTestCase {
                 case let .success(response):
                     let json = response.dictionaryBody
                     XCTAssertEqual(json["key"] as? String, "value1")
-                case .failure(let response):
+                case let .failure(response):
                     XCTFail("Error: \(response.error)")
                 }
             } else {

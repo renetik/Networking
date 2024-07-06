@@ -1,7 +1,6 @@
 import Foundation
 
 public extension Networking {
-
     /// GET request to the specified path.
     ///
     /// - Parameters:
@@ -46,7 +45,6 @@ public extension Networking {
 }
 
 public extension Networking {
-
     /// PATCH request to the specified path, using the provided parameters.
     ///
     /// - Parameters:
@@ -90,7 +88,6 @@ public extension Networking {
 }
 
 public extension Networking {
-
     /// PUT request to the specified path, using the provided parameters.
     ///
     /// - Parameters:
@@ -134,7 +131,6 @@ public extension Networking {
 }
 
 public extension Networking {
-
     /// POST request to the specified path, using the provided parameters.
     ///
     /// - Parameters:
@@ -191,7 +187,6 @@ public extension Networking {
 }
 
 public extension Networking {
-
     /// DELETE request to the specified path, using the provided parameters.
     ///
     /// - Parameters:
@@ -235,7 +230,6 @@ public extension Networking {
 }
 
 public extension Networking {
-
     /// Retrieves an image from the cache or from the filesystem.
     ///
     /// - Parameters:
