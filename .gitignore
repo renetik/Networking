@@ -33,3 +33,5 @@ Networking.framework.zip
 # CocoaPods
 Pods
 *.lock
+/.index-build/workspace-state.json
+/.index-build/arm64-apple-macosx/debug/Networking.build/module.modulemap
